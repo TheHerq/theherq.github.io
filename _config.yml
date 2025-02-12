@@ -119,15 +119,15 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: TheHerq/theherq.github.io # <gh-username>/<repo>
-    repo_id: 931196687
-    category: General
-    category_id:
-    mapping: # optional, default to 'pathname'
+    repo: "TheHerq/theherq.github.io" # <gh-username>/<repo>
+    repo_id: "R_kgDON4DvDw"
+    category: "General"
+    category_id: DIC_kwDON4DvD84Cm6ZJ
+    mapping: "pathname" # optional, default to 'pathname'
     strict: # optional, default to '0'
     input_position: # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
-    reactions_enabled: # optional, default to the value of `1`
+    reactions_enabled: "1" # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
 assets:
