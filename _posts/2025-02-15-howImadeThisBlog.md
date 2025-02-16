@@ -34,11 +34,11 @@ This doesn't cause me any inconvenience currently because I create posts as .md 
 ## Step by step manual  
 
 We start with the [Chirpy](https://github.com/cotes2020?tab=repositories) repository, which is a theme based on [Jekyll](https://jekyllrb.com/) (a static site generator).  
-1. Go to the repository https://github.com/cotes2020/chirpy-starter 
+- Go to the repository https://github.com/cotes2020/chirpy-starter 
 ![](media/chirpy1.png)
 Click "Create a new repository".  
 
-2. In the "Repository name*" you must put your GitHub username and extension github.io: username.github.io  
+- In the "Repository name*" you must put your GitHub username and extension github.io: username.github.io  
 
 > You must use this exact format, otherwise your site won't work. 
 
@@ -46,24 +46,25 @@ In my case, it is: `theherq.github.io`
 
 ![](media/chirpy2.png)
 Next click “Create repository” (this repo must be Public)    
-3. Next go to your repository named user.github.io and click "Action" tab.  
+- Next go to your repository named user.github.io and click "Action" tab.  
 ![](media/myrepo1.png)
 Wait until you see green checkmarks.   
 ![](media/myrepo2.png)
 
-4. Now go to your "Code" tab and click green button "<> Code" and copy your address.  
+- Now go to your "Code" tab and click green button "<> Code" and copy your address.  
 ![](media/myrepo3.png)
-5. Open your terminal and enter command `git clone https://github.com/username/username.github.io.git` replacing username in the address with your own username.  
-6. Now that you have your repository locally, open it in your favorite editor (in my case it's VS Code) and edit the `_config.yml` file:   
-	1. `timezone: Your/Timeone`   
-	2. `title: Your Blog Title`  
-	3. `tagline: Your Subtitle`  
-	4. `description: Your SEO Meta`  
-	5. `url: "https://username.github.io"` - it is your site address - don't confuse with repository address  
-	6. `github username: your-github-username`  
+
+- Open your terminal and enter command `git clone https://github.com/username/username.github.io.git` replacing username in the address with your own username.  
+- Now that you have your repository locally, open it in your favorite editor (in my case it's VS Code) and edit the `_config.yml` file:   
+	- `timezone: Your/Timeone`   
+	- `title: Your Blog Title`  
+	- `tagline: Your Subtitle`  
+	- `description: Your SEO Meta`  
+	- `url: "https://username.github.io"` - it is your site address - don't confuse with repository address  
+	- `github username: your-github-username`  
 	There are many other settings you can change and customize, but the ones I listed above are the most important to get your blog up and running.  
 	
-	> url: and github username: are the most important
+	> `url:` and `github username:` are the most important
 	> Remember about spaces after ":" e.g. `url: "https://username.github.io"` and about quotation marks at the website address.  
 	
 ![](media/config1.png) 
