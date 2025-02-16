@@ -79,6 +79,21 @@ And that's it, you can go to your repository on GitHub, go to the "Action" tab a
 
 After that you can visit your blog page at: https://username.github.io  
 
-I realize there are much easier ways to create your own blog, but this one seems interesting to me because of its nerdiness.  
+To create a new post on your blog, go to the `_posts` folder and create a new file in it, the name of which will be: `YYYY-MM-DD-YOUR-TITLE.md`   
+> The file name format is crucial to the proper functioning of your blog.
+
+At the very top of your post you need to place a Front Matter with the following elements:
+```
+---
+title: Your post title
+date: YYYY-MM-DD HH:MM
+categories: "[YOUR-CATEGORY]"
+tags: "[YOUR-TAG]"
+---
+```
+If you want you can also add `pin: true` which means this entry will always be at the top.  
+
+That's all!
+I know there are much easier ways to create your own blog, but this one seems interesting to me because of its nerdiness.  
 
 Enjoy it.  
