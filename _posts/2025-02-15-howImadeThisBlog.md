@@ -39,10 +39,10 @@ We start with the [Chirpy](https://github.com/cotes2020?tab=repositories) reposi
 Click "Create a new repository".  
 
 2. In the "Repository name*" you must put your GitHub username and extension github.io: username.github.io  
-> [!info]
+
 > You must use this exact format, otherwise your site won't work. 
 
-In my case, it is: theherq.github.io  
+In my case, it is: `theherq.github.io`  
 
 ![](media/chirpy2.png)
 Next click “Create repository” (this repo must be Public)    
@@ -54,7 +54,7 @@ Wait until you see green checkmarks.
 4. Now go to your "Code" tab and click green button "<> Code" and copy your address.  
 ![](media/myrepo3.png)
 5. Open your terminal and enter command `git clone https://github.com/username/username.github.io.git` replacing username in the address with your own username.  
-6. Now that you have your repository locally, open it in your favorite editor (in my case it's VS Code) and edit the _config.yml file:   
+6. Now that you have your repository locally, open it in your favorite editor (in my case it's VS Code) and edit the `_config.yml` file:   
 	1. `timezone: Your/Timeone`   
 	2. `title: Your Blog Title`  
 	3. `tagline: Your Subtitle`  
