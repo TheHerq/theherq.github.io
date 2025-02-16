@@ -82,7 +82,7 @@ After that you can visit your blog page at: https://username.github.io
 To create a new post on your blog, go to the `_posts` folder and create a new file in it, the name of which will be: `YYYY-MM-DD-YOUR-TITLE.md`   
 > The file name format is crucial to the proper functioning of your blog.
 
-At the very top of your post you need to place a Front Matter with the following elements:
+At the very top of your post you need to place a Front Matter with the following elements:  
 ```
 ---
 title: Your post title
@@ -92,8 +92,8 @@ tags: "[YOUR-TAG]"
 ---
 ```
 If you want you can also add `pin: true` which means this entry will always be at the top.  
-
-That's all!
-I know there are much easier ways to create your own blog, but this one seems interesting to me because of its nerdiness.  
-
+  
+That's all!  
+I know there are much easier ways to create your own blog, but this one seems interesting to me because of its nerdiness.   
+  
 Enjoy it.  
