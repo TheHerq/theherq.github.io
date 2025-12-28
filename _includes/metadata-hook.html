@@ -3,57 +3,103 @@
 
 <!-- Fix for code blocks collapsing after page load -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Wait a bit for any theme JS to run first
-  setTimeout(function() {
-    // Find all rouge tables and ensure they display correctly
+(function() {
+  function fixCodeBlocks() {
     var tables = document.querySelectorAll('.highlight table.rouge-table');
     tables.forEach(function(table) {
-      table.style.display = 'table';
-      table.style.width = '100%';
-      table.style.tableLayout = 'fixed';
+      // Force table display
+      table.style.cssText = 'display: table !important; width: 100% !important; table-layout: fixed !important;';
 
       var tbody = table.querySelector('tbody');
       if (tbody) {
-        tbody.style.display = 'table-row-group';
+        tbody.style.cssText = 'display: table-row-group !important;';
       }
 
       var rows = table.querySelectorAll('tr');
       rows.forEach(function(row) {
-        row.style.display = 'table-row';
+        row.style.cssText = 'display: table-row !important;';
       });
 
       var cells = table.querySelectorAll('td');
       cells.forEach(function(cell) {
-        cell.style.display = 'table-cell';
-        cell.style.verticalAlign = 'top';
+        cell.style.cssText = 'display: table-cell !important; vertical-align: top !important;';
       });
 
       // Fix gutter column
       var gutters = table.querySelectorAll('td.rouge-gutter');
       gutters.forEach(function(gutter) {
-        gutter.style.width = '3rem';
-        gutter.style.minWidth = '3rem';
-        gutter.style.maxWidth = '3rem';
+        gutter.style.cssText = 'display: table-cell !important; width: 3rem !important; min-width: 3rem !important; max-width: 3rem !important; vertical-align: top !important;';
         var pre = gutter.querySelector('pre');
         if (pre) {
-          pre.style.display = 'block';
-          pre.style.whiteSpace = 'pre';
-          pre.style.textAlign = 'right';
+          pre.style.cssText = 'display: block !important; white-space: pre !important; text-align: right !important; margin: 0 !important; padding: 0 !important;';
         }
       });
 
       // Fix code column
       var codes = table.querySelectorAll('td.rouge-code');
       codes.forEach(function(code) {
-        code.style.paddingLeft = '1rem';
+        code.style.cssText = 'display: table-cell !important; padding-left: 1rem !important; vertical-align: top !important;';
         var pre = code.querySelector('pre');
         if (pre) {
-          pre.style.whiteSpace = 'pre';
-          pre.style.overflowX = 'auto';
+          pre.style.cssText = 'white-space: pre !important; overflow-x: auto !important; margin: 0 !important; padding: 0 !important;';
         }
       });
     });
-  }, 100);
-});
+  }
+
+  // Run immediately
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fixCodeBlocks);
+  } else {
+    fixCodeBlocks();
+  }
+
+  // Run after a delay to catch any JS modifications
+  setTimeout(fixCodeBlocks, 100);
+  setTimeout(fixCodeBlocks, 500);
+  setTimeout(fixCodeBlocks, 1000);
+  setTimeout(fixCodeBlocks, 2000);
+
+  // Watch for any DOM changes and re-apply fixes
+  var observer = new MutationObserver(function(mutations) {
+    var shouldFix = false;
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' || mutation.type === 'childList') {
+        var target = mutation.target;
+        if (target.classList && (
+            target.classList.contains('highlight') ||
+            target.classList.contains('rouge-table') ||
+            target.classList.contains('rouge-gutter') ||
+            target.classList.contains('rouge-code') ||
+            target.tagName === 'PRE' ||
+            target.tagName === 'TABLE'
+        )) {
+          shouldFix = true;
+        }
+      }
+    });
+    if (shouldFix) {
+      fixCodeBlocks();
+    }
+  });
+
+  // Start observing when DOM is ready
+  function startObserver() {
+    var content = document.querySelector('.content');
+    if (content) {
+      observer.observe(content, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        attributeFilter: ['style', 'class']
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startObserver);
+  } else {
+    startObserver();
+  }
+})();
 </script>

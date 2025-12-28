@@ -1,70 +1,86 @@
 /* ============================================
    Fix dla bloków kodu - formatowanie i clipboard
+   Wysokiej specyficzności selektory z !important
    ============================================ */
 
-/* Zapewnienie prawidłowego wyświetlania tabeli rouge */
+/* Wymuszenie wyświetlania tabeli jako tabeli */
+html body .content .highlight table.rouge-table,
+html body article .highlight table.rouge-table,
 .highlight table.rouge-table {
   display: table !important;
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
 }
 
+html body .content .highlight table.rouge-table tbody,
+html body article .highlight table.rouge-table tbody,
 .highlight table.rouge-table tbody {
   display: table-row-group !important;
 }
 
+html body .content .highlight table.rouge-table tr,
+html body article .highlight table.rouge-table tr,
 .highlight table.rouge-table tr {
   display: table-row !important;
 }
 
+html body .content .highlight table.rouge-table td,
+html body article .highlight table.rouge-table td,
 .highlight table.rouge-table td {
   display: table-cell !important;
-  vertical-align: top;
+  vertical-align: top !important;
 }
 
 /* Kolumna z numerami linii */
-.highlight table.rouge-table td.rouge-gutter {
-  width: 3rem;
-  min-width: 3rem;
-  max-width: 3rem;
+html body .content .highlight table.rouge-table td.rouge-gutter,
+html body article .highlight table.rouge-table td.rouge-gutter,
+.highlight table.rouge-table td.rouge-gutter,
+.highlight td.rouge-gutter.gl {
+  width: 3rem !important;
+  min-width: 3rem !important;
+  max-width: 3rem !important;
   padding-right: 0.75rem !important;
-  border-right: 1px solid var(--highlight-lineno-color, #6c757d);
+  border-right: 1px solid var(--highlight-lineno-color, #6c757d) !important;
 }
 
+html body .content .highlight table.rouge-table td.rouge-gutter pre,
+html body article .highlight table.rouge-table td.rouge-gutter pre,
 .highlight table.rouge-table td.rouge-gutter pre,
-.highlight table.rouge-table td.rouge-gutter pre.lineno {
+.highlight td.rouge-gutter.gl pre,
+.highlight td.rouge-gutter.gl pre.lineno,
+pre.lineno {
   display: block !important;
   white-space: pre !important;
-  text-align: right;
-  margin: 0;
-  padding: 0;
-  line-height: 1.4rem;
-  font-size: 0.85rem;
-  overflow: visible;
+  text-align: right !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4rem !important;
+  font-size: 0.85rem !important;
+  overflow: visible !important;
 }
 
 /* Kolumna z kodem */
+html body .content .highlight table.rouge-table td.rouge-code,
+html body article .highlight table.rouge-table td.rouge-code,
 .highlight table.rouge-table td.rouge-code {
   padding-left: 1rem !important;
-  width: auto;
+  width: auto !important;
 }
 
+html body .content .highlight table.rouge-table td.rouge-code pre,
+html body article .highlight table.rouge-table td.rouge-code pre,
 .highlight table.rouge-table td.rouge-code pre {
   white-space: pre !important;
-  overflow-x: auto;
-  margin: 0;
-  padding: 0;
-}
-
-/* Fix dla <code> wewnątrz highlight */
-.highlight code {
-  display: block;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Responsywność - ukryj numery linii na małych ekranach */
 @media (max-width: 576px) {
-  .highlight table.rouge-table td.rouge-gutter {
+  .highlight table.rouge-table td.rouge-gutter,
+  .highlight td.rouge-gutter.gl {
     display: none !important;
   }
 
