@@ -1,105 +1,110 @@
-<!-- Custom CSS for code block fixes -->
+<!-- Critical CSS for code blocks - loaded inline for highest priority -->
+<style>
+/* Force table layout for code blocks */
+.highlight table.rouge-table,
+div.highlight table.rouge-table {
+  display: table !important;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+}
+
+.highlight table.rouge-table tbody,
+div.highlight table.rouge-table tbody {
+  display: table-row-group !important;
+}
+
+.highlight table.rouge-table tr,
+div.highlight table.rouge-table tr {
+  display: table-row !important;
+}
+
+.highlight table.rouge-table td,
+div.highlight table.rouge-table td,
+.highlight td.rouge-gutter,
+.highlight td.rouge-code,
+td.rouge-gutter.gl,
+td.rouge-code {
+  display: table-cell !important;
+  vertical-align: top !important;
+}
+
+/* Line numbers column */
+.highlight td.rouge-gutter.gl,
+td.rouge-gutter.gl,
+.highlight td.rouge-gutter,
+td.rouge-gutter {
+  width: 3rem !important;
+  min-width: 3rem !important;
+  max-width: 3rem !important;
+  padding-right: 0.5rem !important;
+  border-right: 1px solid var(--highlight-lineno-color, #6c757d) !important;
+}
+
+/* Pre element inside line numbers */
+.highlight td.rouge-gutter pre,
+.highlight td.rouge-gutter.gl pre,
+td.rouge-gutter.gl pre,
+td.rouge-gutter pre,
+pre.lineno {
+  display: block !important;
+  white-space: pre !important;
+  text-align: right !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.5 !important;
+  overflow: visible !important;
+}
+
+/* Code column */
+.highlight td.rouge-code,
+td.rouge-code {
+  padding-left: 1rem !important;
+  width: auto !important;
+}
+
+.highlight td.rouge-code pre,
+td.rouge-code pre {
+  white-space: pre !important;
+  overflow-x: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Override any flex styles that might be applied */
+.highlight,
+.highlight > code,
+.highlight table,
+.highlight table tbody,
+.highlight table tr,
+.highlight table td {
+  display: revert;
+}
+
+.highlight table.rouge-table {
+  display: table !important;
+}
+
+.highlight table.rouge-table tbody {
+  display: table-row-group !important;
+}
+
+.highlight table.rouge-table tr {
+  display: table-row !important;
+}
+
+.highlight table.rouge-table td {
+  display: table-cell !important;
+}
+
+/* Hide on mobile */
+@media (max-width: 576px) {
+  .highlight td.rouge-gutter,
+  td.rouge-gutter.gl {
+    display: none !important;
+  }
+}
+</style>
+
+<!-- Additional custom CSS file -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-
-<!-- Fix for code blocks collapsing after page load -->
-<script>
-(function() {
-  function fixCodeBlocks() {
-    var tables = document.querySelectorAll('.highlight table.rouge-table');
-    tables.forEach(function(table) {
-      // Force table display
-      table.style.cssText = 'display: table !important; width: 100% !important; table-layout: fixed !important;';
-
-      var tbody = table.querySelector('tbody');
-      if (tbody) {
-        tbody.style.cssText = 'display: table-row-group !important;';
-      }
-
-      var rows = table.querySelectorAll('tr');
-      rows.forEach(function(row) {
-        row.style.cssText = 'display: table-row !important;';
-      });
-
-      var cells = table.querySelectorAll('td');
-      cells.forEach(function(cell) {
-        cell.style.cssText = 'display: table-cell !important; vertical-align: top !important;';
-      });
-
-      // Fix gutter column
-      var gutters = table.querySelectorAll('td.rouge-gutter');
-      gutters.forEach(function(gutter) {
-        gutter.style.cssText = 'display: table-cell !important; width: 3rem !important; min-width: 3rem !important; max-width: 3rem !important; vertical-align: top !important;';
-        var pre = gutter.querySelector('pre');
-        if (pre) {
-          pre.style.cssText = 'display: block !important; white-space: pre !important; text-align: right !important; margin: 0 !important; padding: 0 !important;';
-        }
-      });
-
-      // Fix code column
-      var codes = table.querySelectorAll('td.rouge-code');
-      codes.forEach(function(code) {
-        code.style.cssText = 'display: table-cell !important; padding-left: 1rem !important; vertical-align: top !important;';
-        var pre = code.querySelector('pre');
-        if (pre) {
-          pre.style.cssText = 'white-space: pre !important; overflow-x: auto !important; margin: 0 !important; padding: 0 !important;';
-        }
-      });
-    });
-  }
-
-  // Run immediately
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', fixCodeBlocks);
-  } else {
-    fixCodeBlocks();
-  }
-
-  // Run after a delay to catch any JS modifications
-  setTimeout(fixCodeBlocks, 100);
-  setTimeout(fixCodeBlocks, 500);
-  setTimeout(fixCodeBlocks, 1000);
-  setTimeout(fixCodeBlocks, 2000);
-
-  // Watch for any DOM changes and re-apply fixes
-  var observer = new MutationObserver(function(mutations) {
-    var shouldFix = false;
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'attributes' || mutation.type === 'childList') {
-        var target = mutation.target;
-        if (target.classList && (
-            target.classList.contains('highlight') ||
-            target.classList.contains('rouge-table') ||
-            target.classList.contains('rouge-gutter') ||
-            target.classList.contains('rouge-code') ||
-            target.tagName === 'PRE' ||
-            target.tagName === 'TABLE'
-        )) {
-          shouldFix = true;
-        }
-      }
-    });
-    if (shouldFix) {
-      fixCodeBlocks();
-    }
-  });
-
-  // Start observing when DOM is ready
-  function startObserver() {
-    var content = document.querySelector('.content');
-    if (content) {
-      observer.observe(content, {
-        attributes: true,
-        childList: true,
-        subtree: true,
-        attributeFilter: ['style', 'class']
-      });
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', startObserver);
-  } else {
-    startObserver();
-  }
-})();
-</script>
