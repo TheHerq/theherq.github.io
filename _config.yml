@@ -196,14 +196,17 @@ defaults:
 sass:
   style: compressed
 
-compress_html:
-  clippings: all
-  comments: all
-  endings: all
-  profile: false
-  blanklines: false
-  ignore:
-    envs: [development]
+# compress_html disabled - was breaking table structure inside code blocks
+# The "endings: all" option was removing closing tags and creating invalid HTML
+# where <table> ended up inside <code> element
+# compress_html:
+#   clippings: all
+#   comments: all
+#   endings: all
+#   profile: false
+#   blanklines: false
+#   ignore:
+#     envs: [development]
 
 exclude:
   - "*.gem"
