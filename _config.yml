@@ -140,7 +140,7 @@ assets:
 pwa:
   enabled: true # The option for PWA feature (installable)
   cache:
-    enabled: false # Temporarily disabled to debug code block issues
+    enabled: true # The option for PWA offline cache
     # Paths defined here will be excluded from the PWA cache.
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
@@ -163,8 +163,7 @@ kramdown:
     span:
       line_numbers: false
     block:
-      # Temporarily disabled line numbers to test if it fixes code block display
-      line_numbers: false
+      line_numbers: true
       start_line: 1
 
 collections:
@@ -197,17 +196,14 @@ defaults:
 sass:
   style: compressed
 
-# compress_html disabled - was breaking table structure inside code blocks
-# The "endings: all" option was removing closing tags and creating invalid HTML
-# where <table> ended up inside <code> element
-# compress_html:
-#   clippings: all
-#   comments: all
-#   endings: all
-#   profile: false
-#   blanklines: false
-#   ignore:
-#     envs: [development]
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
 
 exclude:
   - "*.gem"
