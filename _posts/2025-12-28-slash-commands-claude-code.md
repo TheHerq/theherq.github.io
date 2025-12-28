@@ -5,7 +5,7 @@ categories: "[Tutorial]"
 tags: "[Claude Code, AI, CLI, productivity]"
 ---
 
-## Intro
+## 🚀 Intro
 
 ### Po co mi te komendy?
 
@@ -13,9 +13,9 @@ Pracując z Claude Code na co dzień, szybko zauważyłem, że wpisywanie pełny
 
 Wyobraź sobie, że zamiast pisać "sprawdź mój kod pod kątem bezpieczeństwa i jakości", wpisujesz po prostu `/review`. Albo zamiast ręcznie przeszukiwać dokumentację, używasz `/help`. Proste, prawda?
 
-Co więcej, w ostatnich wersjach Claude Code pojawiły się naprawdę ciekawe nowości - **Skills** (umiejętności) oraz **Sub-agents** (podagenci). Te funkcje przenoszą interakcję z AI na zupełnie nowy poziom, ale o tym za chwilę.
+Co więcej, w ostatnich wersjach Claude Code pojawiły się naprawdę ciekawe nowości - **Skills** (umiejętności), **Sub-agents** (podagenci) oraz możliwość **delegowania zadań do chmury**. Te funkcje przenoszą interakcję z AI na zupełnie nowy poziom, ale o tym za chwilę.
 
-## Wszystkie wbudowane komendy slash
+## 📋 Wszystkie wbudowane komendy slash
 
 Oto pełna lista komend, które masz dostępne od razu po uruchomieniu Claude Code:
 
@@ -84,7 +84,7 @@ Oto pełna lista komend, które masz dostępne od razu po uruchomieniu Claude Co
 | `/terminal-setup` | Instaluje Shift+Enter dla nowych linii (iTerm2/VSCode) |
 | `/login` / `/logout` | Logowanie/wylogowanie z konta Anthropic |
 
-## Tworzenie własnych komend slash
+## ✨ Tworzenie własnych komend slash
 
 To jest ta część, która naprawdę mnie kręci. Możesz tworzyć własne komendy jako pliki Markdown!
 
@@ -126,7 +126,7 @@ model: claude-3-5-haiku-20241022
 Utwórz commit z wiadomością: $ARGUMENTS
 ```
 
-## Nowości: Skills - umiejętności Claude'a
+## 🎯 Nowości: Skills - umiejętności Claude'a
 
 Tutaj zaczyna się prawdziwa magia. **Skills** to pliki markdown, które uczą Claude'a wykonywać określone zadania. Najfajniejsze jest to, że aktywują się automatycznie, gdy Twoje zapytanie pasuje do ich opisu.
 
@@ -178,7 +178,13 @@ Przy wyjaśnianiu kodu zawsze:
 | **Slash commands** | Reużywalne prompty | Wpisujesz `/command` |
 | **CLAUDE.md** | Instrukcje projektu | Zawsze aktywne |
 
-## Nowości: Sub-agents - podagenci
+### 💎 Gotowe Skills do użycia
+
+Nie musisz tworzyć wszystkich Skills od zera. Społeczność już przygotowała wiele gotowych rozwiązań. Polecam zajrzeć do repozytorium [Awesome Claude Skills](https://github.com/ComposioHQ/awesome-claude-skills) - znajdziesz tam kolekcję sprawdzonych Skills, które możesz od razu zainstalować i używać. Od generowania commitów, przez recenzje kodu, po integracje z różnymi serwisami.
+
+A jeśli chcesz tworzyć własne Skills, ale nie masz ochoty ręcznie pisać plików YAML i Markdown? Jest na to rozwiązanie - **Skill Creator**. To skill, który... pomaga tworzyć inne skille. 🔄 Tak, wiem - brzmi jak inception, ale to naprawdę przydatne narzędzie. Zamiast samemu pamiętać o strukturze plików, wymaganych polach i najlepszych praktykach, po prostu opisujesz Claude'owi czego potrzebujesz, a Skill Creator przeprowadzi Cię przez cały proces i wygeneruje gotowy do użycia skill. Meta? Może. Użyteczne? Zdecydowanie.
+
+## 🤖 Nowości: Sub-agents - podagenci
 
 To kolejna funkcja, która zmienia sposób pracy z Claude Code. **Sub-agents** to wyspecjalizowani asystenci AI, którym główny agent może delegować zadania.
 
@@ -243,7 +249,7 @@ Claude automatycznie deleguje zadania na podstawie opisu, ale możesz też wywo�
 > Poproś debugger o zbadanie tego błędu
 ```
 
-## Co nowego w ostatnich wersjach?
+## 🆕 Co nowego w ostatnich wersjach?
 
 Z changelogu Claude Code wybrałem najciekawsze nowości:
 
@@ -263,17 +269,78 @@ skills: pr-review, security-check
 ---
 ```
 
-### LSP Tool (v2.0.74)
-Nowe narzędzie do code intelligence - go-to-definition, find references, hover documentation. Prawdziwy IDE experience w terminalu.
+### LSP Tool (v2.0.74) 🔍
 
-### MCP Wildcards (v2.0.70)
-Uproszczone zarządzanie uprawnieniami dla serwerów MCP:
+Nowe narzędzie **Language Server Protocol** to prawdziwy game-changer dla pracy z kodem. LSP to standard, który używają IDE takie jak VS Code do zapewnienia "inteligencji kodu". Teraz Claude Code ma do niego bezpośredni dostęp.
 
+Co to oznacza w praktyce? Claude może teraz:
+
+- **Go-to-definition** - skoczyć do definicji funkcji, klasy czy zmiennej
+- **Find references** - znaleźć wszystkie miejsca, gdzie coś jest używane
+- **Hover documentation** - wyświetlić dokumentację bez opuszczania terminala
+
+Przykład użycia:
+```bash
+> Znajdź wszystkie miejsca gdzie używana jest funkcja processPayment
+> Pokaż mi definicję klasy UserService
+> Jakie metody ma interfejs PaymentGateway?
 ```
-mcp__server__*
+
+Claude używa LSP w tle, żeby dać Ci precyzyjne odpowiedzi zamiast zgadywać na podstawie tekstu. To jak mieć IDE experience, ale w terminalu.
+
+### MCP Wildcards (v2.0.70) 🔐
+
+**MCP (Model Context Protocol)** to otwarty standard integracji Claude'a z zewnętrznymi narzędziami i źródłami danych - bazami danych, API, serwisami jak GitHub, Sentry, Jira i wieloma innymi.
+
+Nowość z wersji 2.0.70 to **wildcards w uprawnieniach**. Wcześniej trzeba było zatwierdzać każde narzędzie z serwera MCP osobno. Teraz możesz jednym ruchem zezwolić na wszystkie narzędzia z danego serwera:
+
+```bash
+# Zezwól na wszystkie narzędzia z serwera github
+mcp__github__*
+
+# Zablokuj wszystkie narzędzia z serwera
+# (dodaj do deny rules w /permissions)
+mcp__dangerous-server__*
 ```
 
-## Komendy z pluginów i MCP
+To szczególnie przydatne, gdy ufasz danemu serwerowi i nie chcesz klikać "Allow" dla każdego narzędzia z osobna. Oszczędza czas i nerwy.
+
+## ☁️ Claude Code on the Web - delegowanie do chmury
+
+To jest funkcja, która naprawdę mnie zafascynowała. **Claude Code on the Web** pozwala uruchamiać zadania asynchronicznie na bezpiecznej infrastrukturze chmurowej Anthropic. Brzmi skomplikowanie? W praktyce jest genialnie proste.
+
+### Jak to działa?
+
+1. Wchodzisz na [claude.ai/code](https://claude.ai/code)
+2. Łączysz swoje konto GitHub
+3. Wybierasz repozytorium i opisujesz zadanie
+4. Claude klonuje repo do bezpiecznej maszyny wirtualnej
+5. Pracuje nad zadaniem (nawet gdy zamkniesz przeglądarkę!)
+6. Dostajesz powiadomienie gdy skończy
+7. Przeglądasz zmiany i tworzysz Pull Request
+
+### Kiedy to jest przydatne?
+
+- **Praca równoległa** - możesz zlecić naprawę kilku bugów jednocześnie
+- **Repo nie na Twoim komputerze** - kod, którego nie masz sklonowanego lokalnie
+- **Długie zadania** - nie musisz trzymać terminala otwartego
+- **Zmiany backendowe** - Claude pisze testy, potem kod je spełniający
+
+### Co jest w środowisku chmurowym?
+
+Domyślny obraz zawiera praktycznie wszystko, czego potrzebujesz:
+
+- **Języki**: Python, Node.js, Ruby, PHP, Java, Go, Rust, C++
+- **Bazy danych**: PostgreSQL 16, Redis 7.0
+- **Narzędzia**: popularne build tools, package managery, testing frameworks
+
+### Przenoszenie między webem a terminalem
+
+Fajne jest to, że możesz **przenieść sesję z chmury do lokalnego terminala**. Klikasz "Open in CLI", wklejasz komendę w terminalu i kontynuujesz pracę lokalnie z pełnym kontekstem tego, co Claude zrobił w chmurze.
+
+> ⚠️ **Uwaga**: Funkcja jest obecnie w fazie badawczej i dostępna dla użytkowników Pro, Max, Team i Enterprise.
+
+## 🔌 Komendy z pluginów i MCP
 
 Warto też wiedzieć, że komendy mogą pochodzić z:
 
@@ -288,16 +355,17 @@ Warto też wiedzieć, że komendy mogą pochodzić z:
 /mcp__github__pr_review 456
 ```
 
-## Podsumowanie
+## 🎬 Podsumowanie
 
 Komendy slash w Claude Code to potężne narzędzie, które pozwala:
 
-- Przyspieszyć codzienną pracę prostymi skrótami
-- Tworzyć własne komendy dopasowane do workflow
-- Używać Skills do automatycznej aktywacji specjalistycznej wiedzy
-- Delegować zadania do wyspecjalizowanych Sub-agents
+- ⚡ Przyspieszyć codzienną pracę prostymi skrótami
+- 🛠️ Tworzyć własne komendy dopasowane do workflow
+- 🎯 Używać Skills do automatycznej aktywacji specjalistycznej wiedzy
+- 🤖 Delegować zadania do wyspecjalizowanych Sub-agents
+- ☁️ Zlecać zadania do chmury i pracować równolegle
 
-Polecam zacząć od eksploracji wbudowanych komend (`/help`), a potem stopniowo tworzyć własne. Możliwości są naprawdę imponujące.
+Polecam zacząć od eksploracji wbudowanych komend (`/help`), a potem stopniowo tworzyć własne. Możliwości są naprawdę imponujące - i co ważne, ciągle się rozwijają.
 
 To wszystko!
-Jak zawsze - enjoy it.
+Jak zawsze - enjoy it. 🚀
