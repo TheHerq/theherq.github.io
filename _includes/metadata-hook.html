@@ -1,2 +1,59 @@
 <!-- Custom CSS for code block fixes -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<!-- Fix for code blocks collapsing after page load -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Wait a bit for any theme JS to run first
+  setTimeout(function() {
+    // Find all rouge tables and ensure they display correctly
+    var tables = document.querySelectorAll('.highlight table.rouge-table');
+    tables.forEach(function(table) {
+      table.style.display = 'table';
+      table.style.width = '100%';
+      table.style.tableLayout = 'fixed';
+
+      var tbody = table.querySelector('tbody');
+      if (tbody) {
+        tbody.style.display = 'table-row-group';
+      }
+
+      var rows = table.querySelectorAll('tr');
+      rows.forEach(function(row) {
+        row.style.display = 'table-row';
+      });
+
+      var cells = table.querySelectorAll('td');
+      cells.forEach(function(cell) {
+        cell.style.display = 'table-cell';
+        cell.style.verticalAlign = 'top';
+      });
+
+      // Fix gutter column
+      var gutters = table.querySelectorAll('td.rouge-gutter');
+      gutters.forEach(function(gutter) {
+        gutter.style.width = '3rem';
+        gutter.style.minWidth = '3rem';
+        gutter.style.maxWidth = '3rem';
+        var pre = gutter.querySelector('pre');
+        if (pre) {
+          pre.style.display = 'block';
+          pre.style.whiteSpace = 'pre';
+          pre.style.textAlign = 'right';
+        }
+      });
+
+      // Fix code column
+      var codes = table.querySelectorAll('td.rouge-code');
+      codes.forEach(function(code) {
+        code.style.paddingLeft = '1rem';
+        var pre = code.querySelector('pre');
+        if (pre) {
+          pre.style.whiteSpace = 'pre';
+          pre.style.overflowX = 'auto';
+        }
+      });
+    });
+  }, 100);
+});
+</script>
