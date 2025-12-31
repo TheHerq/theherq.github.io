@@ -1,8 +1,8 @@
 ---
 title: Komendy slash w Claude Code - kompletny przewodnik po skrótach i nowościach
 date: 2025-12-28 14:30
-categories: "[Tutorial]"
-tags: "[Claude Code, AI, CLI, productivity]"
+categories: [Tutorial]
+tags: [Claude Code, AI, CLI, productivity]
 ---
 
 ## 🚀 Intro

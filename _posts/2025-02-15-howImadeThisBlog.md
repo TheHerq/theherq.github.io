@@ -1,8 +1,8 @@
 ---
 title: Why and how I made this blog
 date: 2025-02-15 00:28
-categories: "[Tutorial]"
-tags: "[howTo]"
+categories: [Tutorial]
+tags: [howTo]
 ---
 
 ## Intro  
