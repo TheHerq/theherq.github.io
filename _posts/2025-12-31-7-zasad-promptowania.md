@@ -1,6 +1,6 @@
 ---
 title: 7 Złotych Zasad Promptowania Claude'a - oficjalny przewodnik od Anthropic
-date: 2025-12-31 10:00
+date: 2025-12-31 00:01
 categories: "[Tutorial]"
 tags: "[Prompting, Claude, AI, Anthropic]"
 ---
