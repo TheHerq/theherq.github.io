@@ -183,6 +183,8 @@ Te zasady pochodzą bezpośrednio od Anthropic - firmy, która stworzyła Claude
 
 Pamiętaj: im lepszy twój prompt, tym lepsza odpowiedź. Warto poświęcić chwilę na przemyślenie prośby, zanim ją wyślesz.
 
+> **Wskazówka:** Choć te zasady pochodzą od Anthropic i dotyczą Claude'a, są w dużej mierze uniwersalne. Jasność, kontekst, dobre przykłady, pozytywne instrukcje - to działa z każdym dużym modelem językowym: GPT, Gemini, Llama czy innymi.
+
 To wszystko!
 Enjoy it. 🚀
 
