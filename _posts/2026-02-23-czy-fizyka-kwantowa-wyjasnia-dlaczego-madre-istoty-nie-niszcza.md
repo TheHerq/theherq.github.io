@@ -6,8 +6,8 @@ tags: [nauka, ewolucja, świadomość, kooperacja, fizyka kwantowa, deep-dive]
 description: >-
   Od teorii gier i ewolucji współpracy, przez neurobiologię emocji, aż po kwantowe fundamenty świadomości — głęboka analiza tego, dlaczego inteligencja wybiera budowanie zamiast niszczenia.
 image:
-  path: ../media/diagram-podsumowanie.png
-  alt: Podsumowanie — wyższa inteligencja odrzuca destrukcję
+  path: ../media/header-alien-kwantowa-kooperacja.png
+  alt: Czy fizyka kwantowa wyjaśnia dlaczego mądre istoty nie niszczą?
 ---
 
 ## 🚀 Intro
@@ -417,6 +417,8 @@ Czy to oznacza, że destrukcja zniknie? Nie. Ale oznacza, że jest anomalią —
 I to jest fascynujące. Bo jeśli to prawda, to najgłębsza odpowiedź na pytanie "dlaczego warto być dobrym" nie pochodzi z religii, filozofii ani moralności — pochodzi z fizyki.
 
 > W następnym artykule zastanowimy się, co to wszystko oznacza dla sztucznej inteligencji. Jeśli świadomość wymaga procesów kwantowych w mikrotubulach — czy AGI oparte na klasycznych komputerach może kiedykolwiek naprawdę *czuć*? I co to oznacza dla przyszłości relacji między ludźmi a maszynami?
+
+![Ilustracja: Kooperacja, mózg i kwanty](../media/ilustracja-kooperacja-mozg-kwanty.png)
 
 ![Podsumowanie](../media/diagram-podsumowanie.png)
 
