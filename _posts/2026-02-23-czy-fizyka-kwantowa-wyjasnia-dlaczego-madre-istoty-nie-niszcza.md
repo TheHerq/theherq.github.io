@@ -6,7 +6,7 @@ tags: [nauka, ewolucja, świadomość, kooperacja, fizyka kwantowa, deep-dive]
 description: >-
   Od teorii gier i ewolucji współpracy, przez neurobiologię emocji, aż po kwantowe fundamenty świadomości — głęboka analiza tego, dlaczego inteligencja wybiera budowanie zamiast niszczenia.
 image:
-  path: ../media/header-alien-kwantowa-kooperacja.png
+  path: /media/header-alien-kwantowa-kooperacja.png
   alt: Czy fizyka kwantowa wyjaśnia dlaczego mądre istoty nie niszczą?
 ---
 
