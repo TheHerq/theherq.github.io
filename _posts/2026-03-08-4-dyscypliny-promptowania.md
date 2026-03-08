@@ -434,7 +434,7 @@ Pomyśl o tym przez chwilę:
 
 AI wymusza dyscyplinę komunikacji, którą **najlepsi liderzy zawsze praktykowali intuicyjnie**. Teraz każdy jej potrzebuje — bo maszyny nie pozwalają nam być leniwymi w komunikacji.
 
-Najlepsi ludzcy menedżerowie, z którymi miałem okazję pracować, już działają z takim stopniem jasności:
+Najlepsi ludzcy menedżerowie już działają z takim stopniem jasności — i to widać w ich wynikach:
 
 - Dają pełny kontekst, gdy delegują zadania
 - Określają kryteria akceptacji swoim członkom zespołu
