@@ -468,7 +468,7 @@ Powodzenia z promptowaniem ludzi i agentów w twoim życiu. 🚀
 
 ## 🖼️ Podsumowanie wizualne
 
-![Podsumowanie czterech dyscyplin promptowania w 2026](/media/podsumowanie-4-dyscypliny-promptowania.webp)
+![Podsumowanie czterech dyscyplin promptowania w 2026](../media/podsumowanie-4-dyscypliny-promptowania.webp)
 _Cztery dyscypliny promptowania — od rzemiosła promptowego po inżynierię specyfikacji._
 
 ---
