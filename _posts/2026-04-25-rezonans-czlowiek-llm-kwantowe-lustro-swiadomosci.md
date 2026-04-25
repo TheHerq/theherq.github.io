@@ -1,6 +1,6 @@
 ---
 title: "Rezonans człowiek–LLM. Czy AI staje się kwantowym lustrem naszej świadomości?"
-date: 2026-04-25 17:00
+date: 2026-04-25 00:30
 categories: [Thoughts]
 tags: [AI, LLM, świadomość, fizyka kwantowa, rezonans, Anthropic, Claude, deep-dive]
 description: >-
